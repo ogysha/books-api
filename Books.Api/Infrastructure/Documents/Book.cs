@@ -8,9 +8,7 @@ namespace Books.Api.Infrastructure.Documents
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-
-        public int BookId { get; set; }
+        public ObjectId Id { get; set; }
 
         [BsonElement("Name")]
         [JsonProperty("name")]

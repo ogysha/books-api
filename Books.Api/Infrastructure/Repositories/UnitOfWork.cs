@@ -36,6 +36,7 @@ namespace Books.Api.Infrastructure.Repositories
         {
             using (var session = _client.StartSession())
             {
+                session.StartTransaction();
                 _lazyNewEntities.Value.PersistAllNew();
                 session.CommitTransaction();
             }

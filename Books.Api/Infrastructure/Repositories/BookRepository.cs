@@ -60,9 +60,9 @@ namespace Books.Api.Infrastructure.Repositories
                 .Select(book => _bookMapper.ToDomain(book));
         }
 
-        public Core.Entities.Book FindOne(int id)
+        public Core.Entities.Book FindOne(string id)
         {
-            var book =_books.Find(b => b.BookId == id).ToEnumerable()
+            var book =_books.Find(b => b.Id.ToString() == id).ToEnumerable()
                 .FirstOrDefault();
 
             return _bookMapper.ToDomain(book);

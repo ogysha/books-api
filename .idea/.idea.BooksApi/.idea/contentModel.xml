@@ -5,6 +5,12 @@
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.2/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.2/system/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_BooksApi.1810886527.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.0.1/build/netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Books.Api" t="IncludeRecursive">
         <e p="Books.Api.csproj" t="IncludeRecursive" />
@@ -25,6 +31,7 @@
               <e p="IWithBookName.cs" t="Include" />
             </e>
             <e p="IAggregateRoot.cs" t="Include" />
+            <e p="IWithId.cs" t="Include" />
           </e>
           <e p="Services" t="Include">
             <e p="BookService.cs" t="Include" />
@@ -64,6 +71,19 @@
           <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="Books.Api.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Books.Api.Integration.Should" t="IncludeRecursive">
+        <e p="Books.Api.Integration.Should.csproj" t="IncludeRecursive" />
+        <e p="BooksServiceShould.cs" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Books.Api.Integration.Should.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

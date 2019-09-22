@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Books.Api.Core.Abstractions;
 using Book = Books.Api.Core.Entities.Book;
@@ -20,7 +21,7 @@ namespace Books.Api.Core.Services
             return _booksRepository.FindAll();
         }
 
-        public Book Get(int id)
+        public Book Get(string id)
         {
             return _booksRepository.FindOne(id);
         }

@@ -1,4 +1,3 @@
-
 using Books.Api.Core.Entities.Builder;
 
 namespace Books.Api.Core.Entities
@@ -10,17 +9,15 @@ namespace Books.Api.Core.Entities
         {
         }
 
-        private Book(int id, string bookName)
+        private Book(string id, string bookName)
         {
             Id = id;
             BookName = bookName;
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string BookName { get; set; }
-        
-        public int BookId { get; set; }
 
         public decimal Price { get; set; }
 
@@ -28,14 +25,14 @@ namespace Books.Api.Core.Entities
 
         public string Author { get; set; }
 
-        public class Builder : IWithBookName, IBuildable
+        public class Builder : IWithId, IWithBookName, IBuildable
         {
-            private int _id;
             private string _bookName;
+            private string _id;
 
-            public static IWithBookName CreateNew()
+            public Book Build()
             {
-                return new Builder();
+                return new Book(_id, _bookName);
             }
 
             public IBuildable WithBookName(string bookName)
@@ -44,9 +41,15 @@ namespace Books.Api.Core.Entities
                 return this;
             }
 
-            public Book Build()
+            public static IWithId CreateNew()
             {
-                return new Book(_id, _bookName);
+                return new Builder();
+            }
+
+            public IWithBookName WithId(string id)
+            {
+                _id = id;
+                return this;
             }
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Books.Api.Core.Entities;
 
@@ -9,6 +10,6 @@ namespace Books.Api.Core.Abstractions
         void Update(TDomain entity);
         void Remove(TDomain entity);
         IEnumerable<TDomain> FindAll();
-        TDomain FindOne(int id);
+        TDomain FindOne(string id);
     }
 }

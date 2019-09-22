@@ -1,11 +1,11 @@
 ﻿using Books.Api.Infrastructure;
-using Books.Api.Infrastructure.Documents;
-using ExpressMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace Books.Api
 {
@@ -21,8 +21,7 @@ namespace Books.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Mapper.Register<Book, Core.Entities.Book>()
-                .Ignore(dest => dest.Id);
+            BsonSerializer.RegisterIdGenerator(typeof(string), new StringObjectIdGenerator());
 
             services.Configure<BookstoreDatabaseSettings>(
                 Configuration.GetSection(nameof(BookstoreDatabaseSettings)));

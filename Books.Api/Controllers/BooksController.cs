@@ -4,6 +4,7 @@ using Books.Api.Core.Entities;
 using Books.Api.Core.Services;
 using Books.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace Books.Api.Controllers
 {
@@ -27,7 +28,7 @@ namespace Books.Api.Controllers
         }
 
         [HttpGet("{id}", Name = "GetBook")]
-        public ActionResult<Book> Get(int id)
+        public ActionResult<Book> Get(string id)
         {
             var book = _bookService.Get(id);
 
@@ -40,16 +41,17 @@ namespace Books.Api.Controllers
         public ActionResult<Infrastructure.Documents.Book> Create(NewBookRequest newBookRequest)
         {
             var newBook = Book.Builder.CreateNew()
+                .WithId(new ObjectId().ToString())
                 .WithBookName(newBookRequest.BookName)
                 .Build();
 
             _bookService.Create(newBook);
 
-            return CreatedAtRoute("GetBook", new {id = newBook.Id.ToString()}, newBook);
+            return CreatedAtRoute("GetBook", new {id = newBook.Id}, newBook);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Book bookIn)
+        public IActionResult Update(string id, Book bookIn)
         {
             var book = _bookService.Get(id);
 
@@ -61,7 +63,7 @@ namespace Books.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             var book = _bookService.Get(id);
 
