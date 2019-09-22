@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_BooksApi.1810886527.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="BooksApi.csproj" t="IncludeRecursive" />
+      <e p="BooksApi.sln" t="IncludeFlat" />
+      <e p="Controllers" t="Include">
+        <e p="BooksController.cs" t="Include" />
+      </e>
+      <e p="Core" t="Include">
+        <e p="Abstractions" t="Include">
+          <e p="IMapper.cs" t="Include" />
+          <e p="IRepository.cs" t="Include" />
+          <e p="IUnitOfWork.cs" t="Include" />
+          <e p="IUnitOfWorkRepository.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Book.cs" t="Include" />
+          <e p="Builder" t="Include">
+            <e p="IBuildable.cs" t="Include" />
+            <e p="IWithBookName.cs" t="Include" />
+          </e>
+          <e p="IAggregateRoot.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="BookService.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Infrastructure" t="Include">
+        <e p="BookstoreDatabaseSettings.cs" t="Include" />
+        <e p="Documents" t="Include">
+          <e p="Book.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="EntitiesPersister.cs" t="Include" />
+          <e p="EntityRepositoryPair.cs" t="Include" />
+        </e>
+        <e p="Mappers" t="Include">
+          <e p="BookMapper.cs" t="Include" />
+        </e>
+        <e p="MongoFactory.cs" t="Include" />
+        <e p="Repositories" t="Include">
+          <e p="BookRepository.cs" t="Include" />
+          <e p="UnitOfWork.cs" t="Include" />
+        </e>
+        <e p="ServiceCollectionExtensions.cs" t="Include" />
+      </e>
+      <e p="Models" t="Include">
+        <e p="NewBookRequest.cs" t="Include" />
+      </e>
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="launchSettings.json" t="Include" />
+      </e>
+      <e p="Startup.cs" t="Include" />
+      <e p="appsettings.Development.json" t="Include" />
+      <e p="appsettings.json" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp2.2" t="Include">
+            <e p="BooksApi.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
