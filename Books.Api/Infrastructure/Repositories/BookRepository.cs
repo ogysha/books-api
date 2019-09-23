@@ -3,7 +3,7 @@ using System.Linq;
 using Books.Api.Core.Abstractions;
 using Books.Api.Core.Entities;
 using MongoDB.Driver;
-using Book = Books.Api.Infrastructure.Documents.Book;
+using Book = Books.Api.Infrastructure.Entities.Book;
 
 namespace Books.Api.Infrastructure.Repositories
 {

@@ -1,6 +1,6 @@
 using Books.Api.Core.Abstractions;
+using Books.Api.Core.Domain;
 using Books.Api.Core.Entities;
-using Books.Api.Core.Services;
 using Books.Api.Infrastructure.Mappers;
 using Books.Api.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +19,7 @@ namespace Books.Api.Infrastructure
             services.AddScoped(sp => sp.GetService<MongoFactory>().MongoClient);
             services.AddScoped(sp => sp.GetService<MongoFactory>().Database);
             services.AddScoped<IRepository<Book>, BookRepository>();
-            services.AddScoped<IMapper<Documents.Book, Book>, BookMapper>();
+            services.AddScoped<IMapper<Entities.Book, Book>, BookMapper>();
             return services;
         }
 

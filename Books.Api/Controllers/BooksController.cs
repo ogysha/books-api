@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using Books.Api.Core.Domain;
 using Books.Api.Core.Entities;
-using Books.Api.Core.Services;
 using Books.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -38,7 +38,7 @@ namespace Books.Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Infrastructure.Documents.Book> Create(NewBookRequest newBookRequest)
+        public ActionResult<Infrastructure.Entities.Book> Create(NewBookRequest newBookRequest)
         {
             var newBook = Book.Builder.CreateNew()
                 .WithId(new ObjectId().ToString())

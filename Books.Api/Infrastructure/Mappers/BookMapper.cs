@@ -1,5 +1,5 @@
 using Books.Api.Core.Abstractions;
-using Books.Api.Infrastructure.Documents;
+using Books.Api.Infrastructure.Entities;
 using MongoDB.Bson;
 
 namespace Books.Api.Infrastructure.Mappers

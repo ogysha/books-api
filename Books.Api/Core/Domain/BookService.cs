@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Books.Api.Core.Abstractions;
 using Book = Books.Api.Core.Entities.Book;
 
-namespace Books.Api.Core.Services
+namespace Books.Api.Core.Domain
 {
     public class BookService
     {

@@ -18,5 +18,15 @@ namespace Books.Api.Infrastructure.Helpers
         {
             Repository.PersistCreationOf(Entity);
         }
+        
+        public void PersistAmended()
+        {
+            Repository.PersistUpdateOf(Entity);
+        }
+        
+        public void PersistDeleted()
+        {
+            Repository.PersistDeletionOf(Entity);
+        }
     }
 }

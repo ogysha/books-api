@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
+using Books.Api.Core.Domain;
 using Books.Api.Core.Entities;
-using Books.Api.Core.Services;
 using Books.Api.Infrastructure.Mappers;
 using Books.Api.Infrastructure.Repositories;
 using MongoDB.Bson;

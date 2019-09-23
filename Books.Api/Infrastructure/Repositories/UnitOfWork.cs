@@ -2,6 +2,7 @@ using System;
 using Books.Api.Core.Abstractions;
 using Books.Api.Core.Entities;
 using Books.Api.Infrastructure.Helpers;
+using Books.Api.Infrastructure.Helpers.Abstractions;
 using MongoDB.Driver;
 
 namespace Books.Api.Infrastructure.Repositories
@@ -10,22 +11,23 @@ namespace Books.Api.Infrastructure.Repositories
     {
         private readonly MongoClient _client;
 
-        private readonly Lazy<EntitiesPersister> _lazyAmendedEntities
-            = new Lazy<EntitiesPersister>(() => new EntitiesPersister());
+        private readonly Lazy<IAllAmendedPersistable> _lazyAmendedEntities
+            = new Lazy<IAllAmendedPersistable>(() => new EntitiesPersister());
 
-        private readonly Lazy<EntitiesPersister> _lazyNewEntities
-            = new Lazy<EntitiesPersister>(() => new EntitiesPersister());
+        private readonly Lazy<IAllNewPersistable> _lazyNewEntities
+            = new Lazy<IAllNewPersistable>(() => new EntitiesPersister());
 
-        private readonly Lazy<EntitiesPersister> _lazyRemovedEntities
-            = new Lazy<EntitiesPersister>(() => new EntitiesPersister());
+        private readonly Lazy<IAllRemovedPersistable> _lazyRemovedEntities
+            = new Lazy<IAllRemovedPersistable>(() => new EntitiesPersister());
 
         public UnitOfWork(MongoClient client)
         {
             _client = client;
         }
 
-        private EntitiesPersister NewEntities => _lazyNewEntities.Value;
-        private EntitiesPersister AmendedEntities => _lazyAmendedEntities.Value;
+        private IAllNewPersistable NewEntities => _lazyNewEntities.Value;
+        private IAllAmendedPersistable AmendedEntities => _lazyAmendedEntities.Value;
+        private IAllRemovedPersistable RemovedEntities => _lazyRemovedEntities.Value;
 
         public void RegisterDeleted(IAggregateRoot entity, IUnitOfWorkRepository unitOfWorkRepository)
         {
@@ -37,7 +39,11 @@ namespace Books.Api.Infrastructure.Repositories
             using (var session = _client.StartSession())
             {
                 session.StartTransaction();
-                _lazyNewEntities.Value.PersistAllNew();
+
+                NewEntities.PersistAllNew();
+                AmendedEntities.PersistAllAmended();
+                RemovedEntities.PersistAllDeleted();
+
                 session.CommitTransaction();
             }
         }
@@ -45,6 +51,8 @@ namespace Books.Api.Infrastructure.Repositories
         public void Rollback()
         {
             NewEntities.Clear();
+            AmendedEntities.Clear();
+            RemovedEntities.Clear();
         }
 
         public void RegisterAmended(IAggregateRoot entity, IUnitOfWorkRepository repository)

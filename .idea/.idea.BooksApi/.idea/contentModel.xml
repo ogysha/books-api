@@ -24,6 +24,9 @@
             <e p="IUnitOfWork.cs" t="Include" />
             <e p="IUnitOfWorkRepository.cs" t="Include" />
           </e>
+          <e p="Domain" t="Include">
+            <e p="BookService.cs" t="Include" />
+          </e>
           <e p="Entities" t="Include">
             <e p="Book.cs" t="Include" />
             <e p="Builder" t="Include">
@@ -33,16 +36,20 @@
             <e p="IAggregateRoot.cs" t="Include" />
             <e p="IWithId.cs" t="Include" />
           </e>
-          <e p="Services" t="Include">
-            <e p="BookService.cs" t="Include" />
-          </e>
         </e>
         <e p="Infrastructure" t="Include">
           <e p="BookstoreDatabaseSettings.cs" t="Include" />
-          <e p="Documents" t="Include">
+          <e p="Entities" t="Include">
             <e p="Book.cs" t="Include" />
           </e>
           <e p="Helpers" t="Include">
+            <e p="Abstractions" t="Include">
+              <e p="IAddable.cs" t="Include" />
+              <e p="IAllAmendedPersistable.cs" t="Include" />
+              <e p="IAllNewPersistable.cs" t="Include" />
+              <e p="IAllRemovedPersistable.cs" t="Include" />
+              <e p="IClearable.cs" t="Include" />
+            </e>
             <e p="EntitiesPersister.cs" t="Include" />
             <e p="EntityRepositoryPair.cs" t="Include" />
           </e>
